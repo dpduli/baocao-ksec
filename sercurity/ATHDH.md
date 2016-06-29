@@ -4,8 +4,11 @@
 
 ##Mục lục.
 [I. Hệ điều hành là gì?] (#hdh)
+
 [II. Một số khái niệm căn bản] (#kn)
+
 [III. Tính cần thiết của một HĐH an toàn] (#canthiet)
+
 [IV. An toàn trong Linux server] (#linux)
  <ul>
  <li>[1. Firewall] (#filewall)</li>
