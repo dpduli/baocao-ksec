@@ -97,3 +97,85 @@ DNS server // là địa chỉ của DNS server , ở đây mình đặt DNS ser
 - Sau đó nhập địa chỉ và kiểm tra thành quả :D
 
 ![scr13](http://i.imgur.com/HWE2hV8.png)
+
+
+###Mô hình 2:
+
+- OK bây giờ chúng ta sẽ đến với mô hình số 2 :D
+
+- Đề bài thầy cho :
+
+![scr3](http://i.imgur.com/XJMhGv4.png)
+
+- Đề mình sử dụng nhưng mô hình giống nhau .
+
+![scr2](http://i.imgur.com/ojMWUV0.png)
+
+```sh
+Trong lúc vẽ mô hình sẽ gặp phải tình trạng thiếu port ở con Swith bên phía DHCP , mọi người nhớ thêm
+port như hình dưới đây nhé.
+```
+
+![scr1](http://i.imgur.com/iupwhr1.png)
+
+- Bắt đầu thực hiện nào :D 
+
+- Đầu tiên chúng ta sẽ cấu hình cho Router0 trước :
+
+```sh
+Router(config)#interface f0/0
+Router(config-if)#ip address 172.16.1.1 255.255.255.0
+Router(config-if)#no sh
+Router(config-if)#exit
+Router(config)#interface s2/0
+Router(config-if)#ip address 172.16.2.2 255.255.255.0
+Router(config-if)#no shutdown
+Router(config-if)#clock rate 64000
+```
+
+- Tiếp đến ta cấu hình cho Router 1:
+
+```sh
+Router(config)#interface s2/0
+Router(config-if)#ip address 172.16.2.3 255.255.255.0
+Router(config-if)#no shutdown
+Router(config-if)#exit
+Router(config)#interface f0/0
+Router(config-if)#ip address 172.16.3.1 255.255.255.0
+Router(config-if)#no shutdown
+```
+- Cấu hình Web server giống như bài trên :D ; ở đây mình đặt IP của webserver là `172.16.1.20`
+
+- Cấu hình DNS server giống như ở trên :D ; ở đây mình đặt IP của DNS server là `172.16.1.10`
+
+- Cấu hình DHCP thì chúng ta đã cấu hình quá nhiều rồi, mọi người cấu hình tương tự những bào lab khác :D
+
+- Tiếp theo chúng ta cấu hình định tuyến để mạng hội tụ :D
+
+ Tại Router0
+
+```sh
+Router(config)#router rip
+Router(config-router)#version 2
+Router(config-router)#network 172.16.1.0
+Router(config-router)#network 172.16.2.0
+Router(config-router)#no auto-summary
+```
+
+ Tại Router1
+
+```sh
+Router(config)#router rip
+Router(config-router)#version 2
+Router(config-router)#network 172.16.3.0
+Router(config-router)#network 172.16.2.0
+Router(config-router)#no auto-summary
+```
+
+- Bây giờ chỉ cần check thôi :D 
+
+![scr4](http://i.imgur.com/MfUPgmX.png)
+
+- Kết quả :
+
+![scr5](http://i.imgur.com/WLlmrn3.png)
