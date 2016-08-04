@@ -5,3 +5,5 @@
 [Bài số 2 mô hình 1+2](https://github.com/datkk06/baocao-ksec/blob/master/Networking/b2.md)
 
 [Bài số 3 mô hình 1 + 2](https://github.com/datkk06/baocao-ksec/blob/master/Networking/bt3.md)
+
+[Bài số 4 mô hình 1 + 2](https://github.com/datkk06/baocao-ksec/blob/master/Networking/bt4.md)
