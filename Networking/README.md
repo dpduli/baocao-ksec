@@ -11,3 +11,5 @@
 [Bài số 5](https://github.com/datkk06/baocao-ksec/blob/master/Networking/bt5.md)
 
 [Bài số 6](https://github.com/datkk06/baocao-ksec/blob/master/Networking/bt6.md)
+
+[Bài số 7](https://github.com/datkk06/baocao-ksec/blob/master/Networking/bt7.md)
